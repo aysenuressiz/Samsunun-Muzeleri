@@ -267,7 +267,6 @@
                     `<i class="fas fa-check text-success"></i> Yeni: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
             });
         }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGR30WbKSiOQS4OuBnyR0iBAHG01EXjh4&callback=initMap"></script>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY&callback=initMap"></script>
 </body>
 </html>

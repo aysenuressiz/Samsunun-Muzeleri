@@ -513,7 +513,6 @@
                 infoWindow.open(map, marker);
             });
         }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGR30WbKSiOQS4OuBnyR0iBAHG01EXjh4&callback=initMap"></script>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY&callback=initMap"></script>
 </body>
 </html>

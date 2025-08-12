@@ -6,7 +6,7 @@ Samsun ilindeki müzeleri tanıtan ve yöneten modern bir Java Web uygulaması.
 
 Bu proje, Samsun'daki müzeleri kullanıcılara tanıtmak ve admin paneli üzerinden müze bilgilerini yönetmek amacıyla geliştirilmiş bir web uygulamasıdır. Kullanıcılar müzeleri görüntüleyebilir, detaylarını inceleyebilir ve yorum yapabilir. Admin kullanıcılar ise müze bilgilerini ekleyebilir, düzenleyebilir ve kullanıcı yorumlarını yönetebilir.
 
-Bu proje için bazı ekran görüntüleri:
+Bu proje için ekran görüntüleri:
 
 ### Ana Sayfa
 ![Ana Sayfa](ekran-goruntuleri/anasayfa.png)
@@ -15,7 +15,31 @@ Bu proje için bazı ekran görüntüleri:
 ![Müzeler Sayfası](ekran-goruntuleri/müzeler.png)
 
 ### Müze Detay Sayfası
-![Müze detay Sayfası](ekran-goruntuleri/müze detay.png)
+![Müze detay Sayfası](ekran-goruntuleri/müze-detay.png)
+
+### Hakkımızda Sayfası
+![Hakkımızda Sayfası](ekran-goruntuleri/hakkımızda.png)
+
+### İletişim Sayfası
+![İletişim Sayfası](ekran-goruntuleri/iletişim.png)
+
+### Admin Giriş Sayfası
+![Admin Giriş Sayfası](ekran-goruntuleri/admin-giriş.png)
+
+### Admin Dashboard Sayfası
+![Müzeler Sayfası](ekran-goruntuleri/admin-dashboard.png)
+
+### Admin Müzeler Sayfası
+![Admin Müzeler Sayfası](ekran-goruntuleri/admin-müzeler.png)
+
+### Admin Müze Güncelle Sayfası
+![Admin Müze Güncelle Sayfası](ekran-goruntuleri/admin-müze-güncelle.png)
+
+### Admin Müze Ekle Sayfası
+![Admin Müze Ekle Sayfası](ekran-goruntuleri/admin-müze-ekle.png)
+
+### Admin Yorumlar Sayfası
+![Admin Yorumlar Sayfası](ekran-goruntuleri/admin-yorumlar.png)
 
 ## 🚀 Özellikler
 

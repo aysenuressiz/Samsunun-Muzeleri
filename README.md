@@ -27,7 +27,7 @@ Bu proje için ekran görüntüleri:
 ![Admin Giriş Sayfası](ekran-goruntuleri/admin-giriş.png)
 
 ### Admin Dashboard Sayfası
-![Müzeler Sayfası](ekran-goruntuleri/admin-dashboard.png)
+![Admin Dashboard Sayfası](ekran-goruntuleri/admin-dashboard.png)
 
 ### Admin Müzeler Sayfası
 ![Admin Müzeler Sayfası](ekran-goruntuleri/admin-müzeler.png)

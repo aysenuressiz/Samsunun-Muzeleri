@@ -96,7 +96,6 @@ SamsununMuzeleri/
 │   │   └── webapp/
 │   │       ├── css/          # Stil dosyaları
 │   │       ├── images/       # Resim dosyaları
-│   │       ├── js/           # JavaScript dosyaları
 │   │       ├── jsp/          # JSP sayfaları
 │   │       └── WEB-INF/      # Web konfigürasyonu
 ├── pom.xml                   # Maven konfigürasyonu

@@ -87,45 +87,7 @@ Bu proje için ekran görüntüleri:
 CREATE DATABASE samsunmuzeleri CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Veritabanını kullanın
-USE samsunmuzeleri;
-
--- Müzeler tablosu
-CREATE TABLE muzeler (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    ad VARCHAR(255) NOT NULL,
-    aciklama TEXT,
-    adres TEXT,
-    telefon VARCHAR(50),
-    calisma_saatleri VARCHAR(100),
-    calisma_gunleri VARCHAR(100),
-    giris_ucreti VARCHAR(50),
-    lat DOUBLE,
-    lng DOUBLE,
-    kapak_foto VARCHAR(255)
-);
-
--- Yorumlar tablosu
-CREATE TABLE yorumlar (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    muze_id INT,
-    kullanici_adi VARCHAR(100),
-    yorum TEXT,
-    tarih TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    onaylandi BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (muze_id) REFERENCES muzeler(id) ON DELETE CASCADE
-);
-
--- Admin kullanıcılar tablosu
-CREATE TABLE admin_users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Varsayılan admin kullanıcısı (şifre: admin123)
-INSERT INTO admin_users (username, password) VALUES ('admin', 'admin123');
-```
+![Database](database.sql) dosyasını kullanın
 
 ### Adım 2: Veritabanı Bağlantısı
 `src/main/java/com/util/DatabaseConnection.java` dosyasında veritabanı bilgilerini güncelleyin:

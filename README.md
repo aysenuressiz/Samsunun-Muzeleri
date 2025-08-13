@@ -82,12 +82,23 @@ Bu proje için ekran görüntüleri:
 
 
 ### Adım 1: Veritabanı Kurulumu
-```sql
--- MySQL'de yeni veritabanı oluşturun
-CREATE DATABASE samsunmuzeleri CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Veritabanını kullanın
-![Database](database.sql) dosyasını kullanın
+Proje kök dizinindeki `database.sql` dosyasını kullanarak veritabanını oluşturun:
+
+```bash
+# MySQL'e bağlanın
+mysql -u root -p
+
+# SQL dosyasını çalıştırın
+source database.sql;
+```
+
+Veya MySQL Workbench gibi bir GUI aracı kullanarak `database.sql` dosyasını import edebilirsiniz.
+
+**Not**: Bu SQL dosyası otomatik olarak:
+- `samsunmuzeleri` veritabanını oluşturur
+- Gerekli tüm tabloları (müzeler, yorumlar, admin_users, iletisim_mesajlari) oluşturur
+- Varsayılan admin kullanıcısını ekler (kullanıcı adı: `admin`, şifre: `admin123`)
 
 ### Adım 2: Veritabanı Bağlantısı
 `src/main/java/com/util/DatabaseConnection.java` dosyasında veritabanı bilgilerini güncelleyin:

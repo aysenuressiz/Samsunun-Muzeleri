@@ -4,7 +4,7 @@ Samsun ilindeki müzeleri tanıtan ve yöneten modern bir Java Web uygulaması.
 
 ## 📋 Proje Hakkında
 
-Bu proje, Samsun'daki müzeleri kullanıcılara tanıtmak ve admin paneli üzerinden müze bilgilerini yönetmek amacıyla geliştirilmiş bir web uygulamasıdır. Kullanıcılar müzeleri görüntüleyebilir, detaylarını inceleyebilir ve yorum yapabilir. Admin kullanıcılar ise müze bilgilerini ekleyebilir, düzenleyebilir ve kullanıcı yorumlarını yönetebilir.
+Bu proje, Samsun'daki müzeleri kullanıcılara tanıtmak ve admin paneli üzerinden müze bilgilerini yönetmek amacıyla geliştirilmiş bir web uygulamasıdır. Kullanıcılar müzeleri görüntüleyebilir, detaylarını inceleyebilir ve yorum yapabilir. Admin kullanıcılar ise müze bilgilerini ekleyebilir, silebilir, düzenleyebilir ve kullanıcı yorumlarını yönetebilir.
 
 ## 🚀 Özellikler
 
@@ -21,7 +21,49 @@ Bu proje, Samsun'daki müzeleri kullanıcılara tanıtmak ve admin paneli üzeri
 - **Müze Yönetimi**: Müze ekleme, düzenleme, silme
 - **Yorum Yönetimi**: Kullanıcı yorumlarını onaylama/reddetme
 - **Güvenli Giriş**: Admin kullanıcı girişi
+- 
+Bu proje için ekran görüntüleri:
 
+### Ana Sayfa
+![Ana Sayfa](ekran-goruntuleri/anasayfa.png)
+
+### Müzeler Sayfası
+![Müzeler Sayfası](ekran-goruntuleri/müzeler.png)
+
+### Müze Detay Sayfası
+![Müze detay Sayfası](ekran-goruntuleri/müze-detay.png)
+
+### Hakkımızda Sayfası
+![Hakkımızda Sayfası](ekran-goruntuleri/hakkımızda.png)
+
+### İletişim Sayfası
+![İletişim Sayfası](ekran-goruntuleri/iletişim.png)
+
+### Admin Giriş Sayfası
+![Admin Giriş Sayfası](ekran-goruntuleri/admin-giriş.png)
+
+### Admin Dashboard Sayfası
+![Admin Dashboard Sayfası](ekran-goruntuleri/admind-dashboard.png)
+
+### Admin Müzeler Sayfası
+![Admin Müzeler Sayfası](ekran-goruntuleri/admin-müzeler.png)
+
+### Admin Müze Güncelle Sayfası
+![Admin Müze Güncelle Sayfası](ekran-goruntuleri/admin-müze-güncelle.png)
+
+### Admin Müze Ekle Sayfası
+![Admin Müze Ekle Sayfası](ekran-goruntuleri/admin-müze-ekle.png)
+
+### Admin Yorumlar Sayfası
+![Admin Yorumlar Sayfası](ekran-goruntuleri/admin-yorumlar.png)
+
+
+### Uygulamaya Erişim
+- **Admin Paneli**: 
+  - Kullanıcı adı: `admin`
+  - Şifre: `admin123`
+ 
+    
 ## 🛠️ Teknolojiler
 
 - **Backend**: Java 17, Servlet, JSP
@@ -38,12 +80,52 @@ Bu proje, Samsun'daki müzeleri kullanıcılara tanıtmak ve admin paneli üzeri
 - MySQL 8.0
 - Apache Tomcat 9.0+
 
+
 ### Adım 1: Veritabanı Kurulumu
 ```sql
 -- MySQL'de yeni veritabanı oluşturun
 CREATE DATABASE samsunmuzeleri CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Veritabanını kullanın
+USE samsunmuzeleri;
+
+-- Müzeler tablosu
+CREATE TABLE muzeler (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ad VARCHAR(255) NOT NULL,
+    aciklama TEXT,
+    adres TEXT,
+    telefon VARCHAR(50),
+    calisma_saatleri VARCHAR(100),
+    calisma_gunleri VARCHAR(100),
+    giris_ucreti VARCHAR(50),
+    lat DOUBLE,
+    lng DOUBLE,
+    kapak_foto VARCHAR(255)
+);
+
+-- Yorumlar tablosu
+CREATE TABLE yorumlar (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    muze_id INT,
+    kullanici_adi VARCHAR(100),
+    yorum TEXT,
+    tarih TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    onaylandi BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (muze_id) REFERENCES muzeler(id) ON DELETE CASCADE
+);
+
+-- Admin kullanıcılar tablosu
+CREATE TABLE admin_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Varsayılan admin kullanıcısı (şifre: admin123)
+INSERT INTO admin_users (username, password) VALUES ('admin', 'admin123');
+```
 
 ### Adım 2: Veritabanı Bağlantısı
 `src/main/java/com/util/DatabaseConnection.java` dosyasında veritabanı bilgilerini güncelleyin:
@@ -101,7 +183,6 @@ SamsununMuzeleri/
 │   │   └── webapp/
 │   │       ├── css/          # Stil dosyaları
 │   │       ├── images/       # Resim dosyaları
-│   │       ├── js/           # JavaScript dosyaları
 │   │       ├── jsp/          # JSP sayfaları
 │   │       └── WEB-INF/      # Web konfigürasyonu
 ├── pom.xml                   # Maven konfigürasyonu

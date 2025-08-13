@@ -21,7 +21,7 @@ Bu proje, Samsun'daki müzeleri kullanıcılara tanıtmak ve admin paneli üzeri
 - **Müze Yönetimi**: Müze ekleme, düzenleme, silme
 - **Yorum Yönetimi**: Kullanıcı yorumlarını onaylama/reddetme
 - **Güvenli Giriş**: Admin kullanıcı girişi
-- 
+  
 Bu proje için ekran görüntüleri:
 
 ### Ana Sayfa
@@ -98,7 +98,6 @@ Veya MySQL Workbench gibi bir GUI aracı kullanarak `database.sql` dosyasını i
 **Not**: Bu SQL dosyası otomatik olarak:
 - `samsunmuzeleri` veritabanını oluşturur
 - Gerekli tüm tabloları (müzeler, yorumlar, admin_users, iletisim_mesajlari) oluşturur
-- Varsayılan admin kullanıcısını ekler (kullanıcı adı: `admin`, şifre: `admin123`)
 
 ### Adım 2: Veritabanı Bağlantısı
 `src/main/java/com/util/DatabaseConnection.java` dosyasında veritabanı bilgilerini güncelleyin:
@@ -136,11 +135,6 @@ cp target/SamsununMuzeleri-0.0.1-SNAPSHOT.war $TOMCAT_HOME/webapps/
 $TOMCAT_HOME/bin/startup.sh
 ```
 
-### Adım 5: Uygulamaya Erişim
-- **Kullanıcı Arayüzü**: http://localhost:8080/SamsununMuzeleri/
-- **Admin Paneli**: http://localhost:8080/SamsununMuzeleri/admin-login
-  - Kullanıcı adı: `admin`
-  - Şifre: `admin123`
 
 ## 📁 Proje Yapısı
 

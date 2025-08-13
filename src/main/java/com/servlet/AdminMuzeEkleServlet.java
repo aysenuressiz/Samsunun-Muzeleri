@@ -18,26 +18,23 @@ import java.util.UUID;
 
 @WebServlet("/admin-muze-ekle")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024 * 1,  // 1 MB
-    maxFileSize = 1024 * 1024 * 10,       // 10 MB
-    maxRequestSize = 1024 * 1024 * 15     // 15 MB
+            fileSizeThreshold = 1024 * 1024 * 1,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 15
 )
 public class AdminMuzeEkleServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private AdminDAO adminDAO = new AdminDAO();
     private YorumDAO yorumDAO = new YorumDAO();
     
-    // İzin verilen dosya türleri
     private static final String[] ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif"};
     
-    // Dosya yükleme klasörü
     private static final String UPLOAD_DIR = "images" + File.separator + "muzeler" + File.separator + "kapak";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // Session kontrolü
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("admin") == null) {
             response.sendRedirect(request.getContextPath() + "/admin-login");
@@ -60,14 +57,12 @@ public class AdminMuzeEkleServlet extends HttpServlet {
         
         request.setCharacterEncoding("UTF-8");
         
-        // Session kontrolü
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("admin") == null) {
             response.sendRedirect(request.getContextPath() + "/admin-login");
             return;
         }
         
-        // Form verilerini al
         String ad = request.getParameter("ad");
         String aciklama = request.getParameter("aciklama");
         String adres = request.getParameter("adres");
@@ -78,11 +73,8 @@ public class AdminMuzeEkleServlet extends HttpServlet {
         String latStr = request.getParameter("lat");
         String lngStr = request.getParameter("lng");
         
-        // Dosya yükleme
         Part filePart = request.getPart("kapak_foto");
-        //String fileName = "default-museum.jpg"; // Varsayılan
         
-        // Basit doğrulama
         if (ad == null || ad.trim().isEmpty() ||
             aciklama == null || aciklama.trim().isEmpty() ||
             adres == null || adres.trim().isEmpty()) {
@@ -97,7 +89,6 @@ public class AdminMuzeEkleServlet extends HttpServlet {
             double lng = Double.parseDouble(lngStr);
             String fileName = null;
 
-            // Dosya yükleme işlemi
             if (filePart != null && filePart.getSize() > 0) {
                 fileName = uploadFile(filePart, request);
                 if (fileName == null) {
@@ -145,26 +136,21 @@ public class AdminMuzeEkleServlet extends HttpServlet {
                 return null;
             }
             
-            // Dosya uzantısını kontrol et
             String fileExtension = getFileExtension(originalFileName).toLowerCase();
             if (!isAllowedExtension(fileExtension)) {
                 return null;
             }
             
-            // Benzersiz dosya adı oluştur
             String uniqueFileName = UUID.randomUUID().toString() + fileExtension;
             
-            // Yükleme klasörünün yolunu al
             String applicationPath = request.getServletContext().getRealPath("");
             String uploadPath = applicationPath + File.separator + UPLOAD_DIR;
             
-            // Klasör yoksa oluştur
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {
                 uploadDir.mkdirs();
             }
             
-            // Dosyayı kaydet
             String filePath = uploadPath + File.separator + uniqueFileName;
             filePart.write(filePath);
             

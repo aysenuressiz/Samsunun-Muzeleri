@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/samsunmuzeleri?useSSL=false&serverTimezone=UTC";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "123456"; // XAMPP için boş, kendi şifrenizi yazın
+    private static final String PASSWORD = "123456";
 
     public static Connection getConnection() throws SQLException {
         try {

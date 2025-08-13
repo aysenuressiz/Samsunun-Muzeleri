@@ -17,7 +17,6 @@ public class AdminMuzeSilServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // Session kontrolü
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("admin") == null) {
             response.sendRedirect(request.getContextPath() + "/admin-login");

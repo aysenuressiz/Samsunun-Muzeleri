@@ -8,7 +8,6 @@ public class AdminUser {
     private String password;
     private Timestamp createdAt;
 
-    // Constructors
     public AdminUser() {}
 
     public AdminUser(String username, String password) {
@@ -16,7 +15,6 @@ public class AdminUser {
         this.password = password;
     }
 
-    // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

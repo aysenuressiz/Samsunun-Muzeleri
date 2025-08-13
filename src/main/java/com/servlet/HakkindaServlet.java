@@ -13,7 +13,6 @@ public class HakkindaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // Hakkında sayfasını göster
         request.getRequestDispatcher("/jsp/hakkinda.jsp").forward(request, response);
     }
 }

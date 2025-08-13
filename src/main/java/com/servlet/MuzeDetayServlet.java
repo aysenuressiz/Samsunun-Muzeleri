@@ -32,17 +32,14 @@ public class MuzeDetayServlet extends HttpServlet {
         try {
             int id = Integer.parseInt(idStr);
             
-            // Müze bilgilerini getir
             Muze muze = muzeDAO.muzeGetirById(id);
             if (muze == null) {
                 response.sendRedirect(request.getContextPath() + "/muzeler");
                 return;
             }
             
-            // Müzeye ait onaylı yorumları getir
             List<Yorum> yorumlar = yorumDAO.muzeYorumlari(id);
             
-            // JSP'ye gönder
             request.setAttribute("muze", muze);
             request.setAttribute("yorumlar", yorumlar);
             request.getRequestDispatcher("/jsp/muze-detay.jsp").forward(request, response);

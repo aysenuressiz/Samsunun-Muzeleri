@@ -20,10 +20,8 @@ public class MuzelerServlet extends HttpServlet {
             throws ServletException, IOException {
         
         try {
-            // Tüm müzeleri getir
             List<Muze> tumMuzeler = muzeDAO.tumMuzeler();
             
-            // JSP'ye gönder
             request.setAttribute("tumMuzeler", tumMuzeler);
             request.getRequestDispatcher("/jsp/muzeler.jsp").forward(request, response);
             

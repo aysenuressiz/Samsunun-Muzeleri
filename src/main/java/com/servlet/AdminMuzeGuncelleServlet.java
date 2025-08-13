@@ -18,9 +18,9 @@ import java.util.UUID;
 
 @WebServlet("/admin-muze-guncelle")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024 * 1,  // 1 MB
-    maxFileSize = 1024 * 1024 * 10,       // 10 MB
-    maxRequestSize = 1024 * 1024 * 15     // 15 MB
+            fileSizeThreshold = 1024 * 1024 * 1,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 15
 )
 public class AdminMuzeGuncelleServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;

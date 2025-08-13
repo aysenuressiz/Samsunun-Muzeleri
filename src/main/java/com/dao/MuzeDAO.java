@@ -8,7 +8,6 @@ import java.util.List;
 
 public class MuzeDAO {
     
-    // Tüm müzeleri getir
     public List<Muze> tumMuzeler() throws SQLException {
         List<Muze> muzeler = new ArrayList<>();
         String sql = "SELECT * FROM muzeler ORDER BY ad";
@@ -25,7 +24,6 @@ public class MuzeDAO {
         return muzeler;
     }
     
-    // ID ile müze getir
     public Muze muzeGetirById(int id) throws SQLException {
         String sql = "SELECT * FROM muzeler WHERE id = ?";
         
@@ -42,7 +40,6 @@ public class MuzeDAO {
         return null;
     }
     
-    // Öne çıkan müzeler (ilk 3)
     public List<Muze> oneCikanMuzeler() throws SQLException {
         List<Muze> muzeler = new ArrayList<>();
         String sql = "SELECT * FROM muzeler ORDER BY id LIMIT 3";
@@ -61,7 +58,6 @@ public class MuzeDAO {
         return muzeler;
     }
     
-    // Toplam müze sayısı
     public int toplamMuzeSayisi() throws SQLException {
         String sql = "SELECT COUNT(*) FROM muzeler";
         
@@ -76,7 +72,6 @@ public class MuzeDAO {
         return 0;
     }
     
-    // ResultSet'ten Muze objesi oluştur
     private Muze createMuzeFromResultSet(ResultSet rs) throws SQLException {
         Muze muze = new Muze();
         muze.setId(rs.getInt("id"));

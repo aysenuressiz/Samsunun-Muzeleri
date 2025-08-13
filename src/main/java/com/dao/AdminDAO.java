@@ -7,7 +7,6 @@ import java.sql.*;
 
 public class AdminDAO {
     
-    // Admin giriş kontrolü
     public AdminUser adminGiris(String username, String password) throws SQLException {
         String sql = "SELECT * FROM admin_users WHERE username = ? AND password = ?";
         
@@ -31,7 +30,6 @@ public class AdminDAO {
         return null;
     }
     
-    // Müze ekle
     public boolean muzeEkle(Muze muze) throws SQLException {
         String sql = "INSERT INTO muzeler (ad, aciklama, adres, telefon, calisma_saatleri, calisma_gunleri, giris_ucreti, lat, lng, kapak_foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
@@ -53,7 +51,6 @@ public class AdminDAO {
         }
     }
     
-    // Müze güncelle
     public boolean muzeGuncelle(Muze muze) throws SQLException {
         String sql = "UPDATE muzeler SET ad = ?, aciklama = ?, adres = ?, telefon = ?, " +
                      "calisma_saatleri = ?, calisma_gunleri = ?, giris_ucreti = ?, " +
@@ -78,7 +75,6 @@ public class AdminDAO {
         }
     }
     
-    // Müze sil
     public boolean muzeSil(int muzeId) throws SQLException {
         String sql = "DELETE FROM muzeler WHERE id = ?";
         
@@ -90,7 +86,6 @@ public class AdminDAO {
         }
     }
     
-    // ID ile müze getir (admin için)
     public Muze muzeGetirById(int id) throws SQLException {
         String sql = "SELECT * FROM muzeler WHERE id = ?";
         

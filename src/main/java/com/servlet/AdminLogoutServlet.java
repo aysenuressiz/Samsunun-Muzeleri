@@ -13,13 +13,11 @@ public class AdminLogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // Session'ı sonlandır
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
         }
         
-        // Login sayfasına yönlendir
         response.sendRedirect(request.getContextPath() + "/admin-login");
     }
     

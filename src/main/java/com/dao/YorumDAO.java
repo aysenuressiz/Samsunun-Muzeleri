@@ -8,7 +8,6 @@ import java.util.List;
 
 public class YorumDAO {
     
-    // Yorum ekle
     public boolean yorumEkle(Yorum yorum) throws SQLException {
         String sql = "INSERT INTO yorumlar (muze_id, ad_soyad, email, yorum) VALUES (?, ?, ?, ?)";
         
@@ -24,7 +23,6 @@ public class YorumDAO {
         }
     }
     
-    // Müzeye ait onaylı yorumları getir
     public List<Yorum> muzeYorumlari(int muzeId) throws SQLException {
         List<Yorum> yorumlar = new ArrayList<>();
         String sql = "SELECT * FROM yorumlar WHERE muze_id = ? AND onaylandimi = TRUE ORDER BY tarih DESC";
@@ -43,7 +41,6 @@ public class YorumDAO {
         return yorumlar;
     }
     
-    // Onaylanmamış yorumları getir (admin için)
     public List<Yorum> onaylanmamisYorumlar() throws SQLException {
         List<Yorum> yorumlar = new ArrayList<>();
         String sql = "SELECT * FROM yorumlar WHERE onaylandimi = FALSE ORDER BY tarih DESC";
@@ -60,7 +57,6 @@ public class YorumDAO {
         return yorumlar;
     }
     
-    // Yorum onayla
     public boolean yorumOnayla(int yorumId) throws SQLException {
         String sql = "UPDATE yorumlar SET onaylandimi = TRUE WHERE id = ?";
         
@@ -72,7 +68,6 @@ public class YorumDAO {
         }
     }
     
-    // Yorum sil
     public boolean yorumSil(int yorumId) throws SQLException {
         String sql = "DELETE FROM yorumlar WHERE id = ?";
         
@@ -84,7 +79,6 @@ public class YorumDAO {
         }
     }
     
-    // Bekleyen yorum sayısı
     public int bekleyenYorumSayisi() throws SQLException {
         String sql = "SELECT COUNT(*) FROM yorumlar WHERE onaylandimi = FALSE";
         
@@ -99,7 +93,6 @@ public class YorumDAO {
         return 0;
     }
     
-    // Toplam yorum sayısı
     public int toplamYorumSayisi() throws SQLException {
         String sql = "SELECT COUNT(*) FROM yorumlar";
         
@@ -114,7 +107,6 @@ public class YorumDAO {
         return 0;
     }
     
-    // ResultSet'ten Yorum objesi oluştur
     private Yorum createYorumFromResultSet(ResultSet rs) throws SQLException {
         Yorum yorum = new Yorum();
         yorum.setId(rs.getInt("id"));

@@ -22,13 +22,10 @@ public class AnasayfaServlet extends HttpServlet {
         
         
         try {
-            // Öne çıkan müzeleri getir (ilk 3 müze)
-            List<Muze> oneCikanMuzeler = muzeDAO.oneCikanMuzeler();
+                    List<Muze> oneCikanMuzeler = muzeDAO.oneCikanMuzeler();
             
-            // JSP'ye gönder
             request.setAttribute("oneCikanMuzeler", oneCikanMuzeler);
             
-            // JSP'ye yönlendir
             request.getRequestDispatcher("/jsp/anasayfa.jsp").forward(request, response);
             
         } catch (SQLException e) {

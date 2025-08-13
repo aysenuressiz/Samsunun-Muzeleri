@@ -20,13 +20,11 @@ public class YorumEkleServlet extends HttpServlet {
         
         request.setCharacterEncoding("UTF-8");
         
-        // Form verilerini al
         String muzeIdStr = request.getParameter("muze_id");
         String adSoyad = request.getParameter("ad_soyad");
         String email = request.getParameter("email");
         String yorumMetni = request.getParameter("yorum");
         
-        // Basit doğrulama
         if (muzeIdStr == null || adSoyad == null || adSoyad.trim().isEmpty() ||
             email == null || email.trim().isEmpty() ||
             yorumMetni == null || yorumMetni.trim().isEmpty()) {
@@ -38,14 +36,12 @@ public class YorumEkleServlet extends HttpServlet {
         try {
             int muzeId = Integer.parseInt(muzeIdStr);
             
-            // Yorum objesi oluştur
             Yorum yorum = new Yorum();
             yorum.setMuzeId(muzeId);
             yorum.setAdSoyad(adSoyad.trim());
             yorum.setEmail(email.trim());
             yorum.setYorum(yorumMetni.trim());
             
-            // Veritabanına ekle
             boolean basarili = yorumDAO.yorumEkle(yorum);
             
             if (basarili) {

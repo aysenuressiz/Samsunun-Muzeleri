@@ -42,7 +42,7 @@ public class AdminLoginServlet extends HttpServlet {
             if (admin != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("admin", admin);
-                session.setMaxInactiveInterval(30 * 60); // 30 dakika
+                session.setMaxInactiveInterval(30 * 60);
                 
                 response.sendRedirect(request.getContextPath() + "/admin-dashboard");
             } else {

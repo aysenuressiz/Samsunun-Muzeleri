@@ -11,7 +11,6 @@ public class Yorum {
     private Timestamp tarih;
     private boolean onaylandimi;
 
-    // Constructors
     public Yorum() {}
 
     public Yorum(int muzeId, String adSoyad, String email, String yorum) {
@@ -21,7 +20,6 @@ public class Yorum {
         this.yorum = yorum;
     }
 
-    // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

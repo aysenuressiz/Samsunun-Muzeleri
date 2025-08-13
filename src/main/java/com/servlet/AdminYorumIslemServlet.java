@@ -17,7 +17,6 @@ public class AdminYorumIslemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // Session kontrolü
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("admin") == null) {
             response.sendRedirect(request.getContextPath() + "/admin-login");
@@ -25,7 +24,7 @@ public class AdminYorumIslemServlet extends HttpServlet {
         }
         
         String idStr = request.getParameter("id");
-        String islem = request.getParameter("islem"); // "onayla" veya "sil"
+        String islem = request.getParameter("islem");
         
         if (idStr == null || islem == null) {
             response.sendRedirect(request.getContextPath() + "/admin-yorumlar?hata=eksik_parametre");

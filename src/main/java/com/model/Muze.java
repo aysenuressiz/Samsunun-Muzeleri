@@ -13,7 +13,6 @@ public class Muze {
     private double lng;
     private String kapakFoto;
 
-    // Constructors
     public Muze() {}
 
     public Muze(String ad, String aciklama, String adres, double lat, double lng) {
@@ -24,7 +23,6 @@ public class Muze {
         this.lng = lng;
     }
 
-    // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

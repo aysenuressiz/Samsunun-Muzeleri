@@ -189,6 +189,76 @@ Bu proje eğitim amaçlı geliştirilmiştir.
 4. Branch'inizi push edin (`git push origin feature/yeni-ozellik`)
 5. Pull Request oluşturun
 
+## 🚀 Canlıya Alma (Deployment)
+
+### Railway ile Deployment (Önerilen)
+
+1. **Railway'e Giriş:**
+   - [Railway.app](https://railway.app/)'e gidin
+   - GitHub hesabınızla giriş yapın
+
+2. **Proje Oluşturma:**
+   - "New Project" → "Deploy from GitHub repo"
+   - Bu repository'yi seçin
+
+3. **Environment Variables Ekleme:**
+   ```
+   DATABASE_URL=jdbc:mysql://your-railway-mysql-url:3306/samsunmuzeleri
+   DATABASE_USERNAME=your_username
+   DATABASE_PASSWORD=your_password
+   PORT=8080
+   ```
+
+4. **MySQL Add-on Ekleme:**
+   - "New" → "Database" → "MySQL"
+   - Oluşturulan MySQL URL'sini DATABASE_URL'ye kopyalayın
+
+5. **Deploy:**
+   - Railway otomatik olarak deploy edecek
+   - URL'niz: `https://your-app-name.railway.app`
+
+### Render ile Deployment
+
+1. **Render'e Giriş:**
+   - [Render.com](https://render.com/)'a gidin
+   - GitHub hesabınızla giriş yapın
+
+2. **Web Service Oluşturma:**
+   - "New" → "Web Service"
+   - GitHub repo'nuzu bağlayın
+
+3. **Konfigürasyon:**
+   - **Build Command:** `mvn clean package`
+   - **Start Command:** `java -jar target/SamsununMuzeleri-0.0.1-SNAPSHOT.war`
+   - **Environment Variables:** Yukarıdaki gibi
+
+4. **Deploy:**
+   - Render otomatik olarak deploy edecek
+
+### Oracle Cloud Free Tier
+
+1. **Oracle Cloud Hesabı:**
+   - [Oracle Cloud](https://www.oracle.com/cloud/free/)'a kayıt olun
+   - Always Free tier seçin
+
+2. **VM Instance Oluşturma:**
+   - Ubuntu 20.04 seçin
+   - Java 17 kurun: `sudo apt install openjdk-17-jdk`
+
+3. **MySQL Kurulumu:**
+   ```bash
+   sudo apt install mysql-server
+   sudo mysql_secure_installation
+   ```
+
+4. **Uygulama Deployment:**
+   ```bash
+   git clone https://github.com/your-username/SamsununMuzeleri.git
+   cd SamsununMuzeleri
+   mvn clean package
+   java -jar target/SamsununMuzeleri-0.0.1-SNAPSHOT.war
+   ```
+
 ## 📞 İletişim
 
 Proje hakkında sorularınız için issue açabilirsiniz. 

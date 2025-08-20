@@ -1,1 +1,1 @@
-web: java -jar target/SamsununMuzeleri-0.0.1-SNAPSHOT.war
+web: mvn clean compile exec:java -Dexec.mainClass="com.servlet.Main"
